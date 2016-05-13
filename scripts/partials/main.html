@@ -1,0 +1,68 @@
+<a onclick="electronOpenLinkInBrowser.bind(this, 'http://recurship.com/contact?utm_source=asanaviewer&utm_medium=app&utm_content=topbanner&utm_campaign=asana')(event)" id="banner">
+  Looking to create an MVP? Check us out!
+</a>
+<div class="container">
+
+    <div role="tabpanel">
+
+      <!-- Nav tabs -->
+      <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" ng-show="userPrefs.taskContext.length > 0"><a href="#" ng-click="reduceContext()" title="{{userPrefs.contextText}}"><i class="glyphicon glyphicon-chevron-left"></i>&nbsp; {{userPrefs.contextText | limitTo:6 }}...</a></li>
+        <li role="presentation" class="active"><a href="#tasks-tab" aria-controls="tasks-tab" role="tab" data-toggle="tab">Tasks</a></li>
+        <li role="presentation"><a href="#settings-tab" aria-controls="settings-tab" role="tab" data-toggle="tab"><i class="glyphicon glyphicon-cog"></i></a></li>
+        <li role="presentation"><a href="#add-tab" aria-controls="add-tab" role="tab" data-toggle="tab"><i class="glyphicon glyphicon-plus"></i></a></li>
+        <li role="presentation"><a href="#feedback-tab" aria-controls="feedback-tab" role="tab" data-toggle="tab"><i class="glyphicon glyphicon-question-sign"></i></a></li>
+        <li role="presentation"><a href="#" ng-click="refresh()"><i class="glyphicon glyphicon-refresh"></i></a></li>
+        <li role="presentation" ng-show="asana.loading > 0"><div class="loading"></div></li>
+      </ul>
+
+      <!-- Tab panes -->
+      <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="tasks-tab">
+            <div ng-include="'views/tasks.html'"></div>
+        </div>
+
+        <div role="tabpanel" class="tab-pane" id="settings-tab">
+            <div ng-include="'views/settings.html'"></div>
+        </div>
+
+        <div role="tabpanel" class="tab-pane" id="add-tab">
+             <div ng-include="'views/add.html'" ng-controller="AddController"></div>
+        </div>
+
+        <div role="tabpanel" class="tab-pane" id="feedback-tab">
+            <div ng-include="'views/feedback.html'"></div>
+        </div>
+
+    </div>
+
+    <div class="modal fade" id="keyBoardShortcuts" tabindex="-1" role="dialog" aria-labelledby="keyBoardShortcuts" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body text-selectable">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <p><strong>Keyboard Shortcuts</strong></p>
+            <p style="color:#222;">You can configure shortcuts below by opening the link below in Chrome: <strong>chrome://extensions/configureCommands</strong></p>
+            <p>The keyboard shortcuts need to be configured by you. Once configured they are available throughout Chrome (including the browser). Thus if you assign a shortcut that
+            is an already being used it can be overridden.</p>
+
+            <p>&#8984; +  &#8679; + 5 <br /> Toggle the app (available globally)</p>
+            <p>Cycle up through projects</p>
+            <p>Cycle down through projects</p>
+            <p>Cycle down through workspaces</p>
+            <p>Cycle up through workspaces</p>
+            <p>Toggle between completed, todo or both</p>
+
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+
+  <div class="footer">
+      v<span id="version">1</span> 2016
+    <a href="http://recurship.com/playthinks/?utm_source=asanaviewer&utm_medium=app&utm_content=footer&utm_campaign=asana" target="_blank">#playthinks</a> part of <a href="http://recurship.com/?utm_source=asanaviewer&utm_medium=app&utm_content=footer&utm_campaign=asana" target="_blank">@recurship</a>
+      -
+      <a href="#" data-toggle="modal" data-target="#keyBoardShortcuts"><i class="glyphicon glyphicon-fire"></i></a>
+  </div>
+</div>
