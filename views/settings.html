@@ -1,0 +1,111 @@
+    <div class="row">
+        <div class="col-md-12">
+            <label>Select Workspace:</label>
+            <select id="workspaces" class="form-control" ng-model="userPrefs.selectedWorkspace" ng-change="changeWorkspace(userPrefs.selectedWorkspace)">
+                <option
+                    ng-repeat="workspace in asana.workspaces"
+                    ng-selected="workspace.isSelected"
+                    value="{{workspace.id}}">{{workspace.name}}</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <label>Select Project:</label>
+            <select
+                id="projects"
+                class="form-control"
+                ng-model="userPrefs.selectedProject"
+                ng-change="changeProject(userPrefs.selectedProject)"
+                ng-options="project.id as project.name group by project.team.name for project in asana.projects">
+            </select>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <label>Show:</label>
+            <select ng-model="userPrefs.taskFilterCompleted" ng-change="adjustFilter()" class="form-control">
+                <option ng-repeat="completed in completedFilters" value="{{completed.value}}">{{ completed.text }}</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <label>Sort By:</label>
+        <select ng-model="userPrefs.sortBy" class="form-control">
+          <option value="">No Sorting</option>
+          <option value="assignee">Assignee</option>
+          <option value="assignee_status">Assignee Status</option>
+          <option value="created_at">Created At</option>
+          <option value="completed">Completed</option>
+          <option value="due_on">Due On</option>
+          <option value="modified_at">Modified At</option>
+        </select>
+
+        <label style="margin-bottom: 0">
+          <input type="checkbox" ng-model="userPrefs.sortReverse"> Reverse?
+        </label>
+
+      </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <label>Filter status:</label>
+            <select ng-model="userPrefs.taskFilterStatus" ng-change="adjustFilter()" class="form-control">
+                <option value="all">No Filter</option>
+                <option value="inbox">Inbox</option>
+                <option value="late">Later</option>
+                <option value="today">Today</option>
+                <option value="upcoming">Upcoming</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <label>Filter Assigned:</label>
+            <select ng-model="userPrefs.taskFilterAssigned" class="form-control" ng-change="adjustFilter()" ng-disabled="userPrefs.selectedProject == 0">
+                <option ng-repeat="user in asana.team" ng-selected="user.isSelected" value="{{user.id}}">
+                    {{user.name}}
+                </option>
+
+            </select>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <label>Personal Access Token:</label>
+            <div class="input-group">
+                <input type="text" ng-model="userPrefs.apiKey" class="form-control comment" placeholder="Please enter your API key" />
+                <div class="input-group-btn">
+                    <button class="btn btn-sm btn-info" ng-click="saveApiKey()"><i class="glyphicon glyphicon-save"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+      <div class="row">
+        <div class="col-md-12">
+            <div class="checkbox">
+                <label>
+                  <input type="checkbox" ng-model="userPrefs.alwaysOnTop" ng-change="setWindowOnTop()"> Window always on top
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="checkbox">
+                <label>
+                  <input type="checkbox" ng-model="userPrefs.autoRefresh" ng-change="changeAutoRefresh()"> Auto-refresh
+                </label>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,21 @@
+{
+  "name": "electron-asana",
+  "version": "1.0.0",
+  "description": "Packaged Asana Task Viewer into Electron",
+  "main": "main.js",
+  "dependencies": {
+    "jquery": "^2.2.3",
+    "menubar": "^4.1.0"
+  },
+  "devDependencies": {
+    "electron-packager": "^5.1.0",
+    "electron-prebuilt": "^1.0.1",
+    "gulp": "^3.9.1",
+    "gulp-livereload": "^3.8.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
