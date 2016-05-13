@@ -19,4 +19,4 @@
 </div>
 <input type="text" class="form-control" ng-model="apiKey" placeholder="Please enter your Asana Personal Access Token..." />
 <button class="btn btn-block btn-success" ng-click="save()">Save</button>
-<p><a href="https://app.asana.com/-/account_api" target="_blank" title="">Create your new Personal Access Token here</a></p>
+<p><a onclick="electronOpenLinkInBrowser.bind(this, 'https://app.asana.com/-/account_api')(event)" title="">Create your new Personal Access Token here</a></p>
