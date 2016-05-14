@@ -1,7 +1,7 @@
 {
   "name": "electron-asana",
-  "version": "1.0.0",
-  "description": "Packaged Asana Task Viewer into Electron",
+  "version": "0.2.0",
+  "description": "Packaged Asana Task Viewer chrome app into Electron",
   "main": "main.js",
   "dependencies": {
     "electron-open-link-in-browser": "^1.0.2",
@@ -9,13 +9,16 @@
     "menubar": "^4.1.0"
   },
   "devDependencies": {
+    "electron-connect": "^0.4.0",
     "electron-packager": "^5.1.0",
-    "electron-prebuilt": "^1.0.1",
+    "electron-prebuilt": "1.0.1",
     "gulp": "^3.9.1"
   },
   "scripts": {
+    "start": "gulp serve",
+    "package": "./node_modules/.bin/electron-packager . --platform all --arch all",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC"
+  "author": "mashhoodr",
+  "license": "MIT"
 }
