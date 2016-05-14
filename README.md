@@ -19,10 +19,10 @@ Very much like the original project this is not meant to be a replacement for As
 
 Node version should be > 4.3, NPM > 3.0
 
-`
+```
 npm install -g electron-prebuilt
 
 npm install
 
 npm start
-`
+```
