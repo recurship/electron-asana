@@ -1,6 +1,42 @@
 html, body {
-  overflow: auto;
+  margin: 0 auto;
+  overflow: hidden;
+  box-shadow: none;
   -webkit-app-region: no-drag;
+  background: transparent !important;
+}
+
+html {
+  box-sizing: border-box;
+  -webkit-text-size-adjust: 100%;
+}
+
+.myarrow {
+  position: relative;
+  padding: 12px 0;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+.myarrow:before {
+  content: "";
+  height: 0;
+  width: 0;
+  border-width: 0 16px 16px 16px;
+  border-style: solid;
+  border-color: transparent transparent #2196f3 transparent;
+  position: fixed;
+  top: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.page {
+  background: #fff;
+  height: auto;
+  overflow: scroll;
 }
 
 /* Datepicker library overriding */
@@ -66,7 +102,7 @@ select.form-control {
   position: fixed;
   width: 100%;
   z-index: 10;
-  top: 0;
+  top: 16px;
 }
 
 .container {
@@ -74,7 +110,7 @@ select.form-control {
 }
 
 .footer {
-  position: fixed;
+  position: absolute;;
   bottom: 0;
   font-size: 11px;
   background: #fff;

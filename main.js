@@ -1,9 +1,13 @@
 var menubar = require('menubar')
 const {app, globalShortcut} = require('electron');
 var isHidden = true
-var mb = menubar();
-
-mb.setOption('icon','icon.png');
+var mb = menubar({
+  width: 430,
+  height: 300,
+  tooltip: 'Asana Desktop',
+  icon: 'icon.png',
+  transparent: true
+});
 
 mb.on('after-create-window', function() {
     mb.window.openDevTools({ detach: true });
@@ -24,7 +28,6 @@ app.on('ready', () => {
   if (!ret) {
     console.log('Registration for keyboard shortcuts failed');
   }
-
 });
 
 app.on('will-quit', () => {

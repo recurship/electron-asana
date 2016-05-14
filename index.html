@@ -18,8 +18,11 @@
         <!-- endbuild -->
     </head>
     <body>
+        <div class="myarrow"></div>
 
-        <div ng-view></div>
+        <div class="page">
+          <div ng-view></div>
+        </div>
         <script>
           module.paths.push(__dirname + '/node_modules/');
           require('electron-connect').client.create();
