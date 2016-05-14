@@ -13,6 +13,10 @@ controller('ItemController', ['$scope', 'AsanaService', function($scope, AsanaSe
 		commentField.val('');
 	};
 
+	$scope.openUrl = function(evt, workspace, itemId) {
+		electronOpenLinkInBrowser('https://app.asana.com/0/' + workspace + '/' + itemId, evt);
+	};
+
 	$scope.selectFile = function(taskId) {
 		$('#file' + taskId).click().change(function() {
 			var files = this.files;
