@@ -40,20 +40,21 @@ angular.module('asanaChromeApp').controller('MainController', ['$scope','AsanaSe
 
 	var intervalCallback = function(data) {
 		if(data.length > 0) {
-			var items = [];
+			var items = '';
 			for(var x = 0; x < data.length; x++) {
 				var obj = data[x];
-				items.push({ title: obj.name, message: '' });
+				items += obj.name + ',';
 			}
 
-			// chrome.notifications.create('updatedTasks', {
-			// 	iconUrl: 'images/icon-64.png',
-			// 	type: 'list',
-			// 	title: data.length + ' task(s) have been updated',
-			// 	message: '',
-			// 	isClickable: false,
-			// 	items: items
-			// }, function() {});
+			items = items.substring(0, item.length - 1);
+
+			new Notification(
+				'Updated',
+				{
+					title: data.length + ' task(s) have been updated',
+					body: items
+				}
+			);
 		}
 	};
 
