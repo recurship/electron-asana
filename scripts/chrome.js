@@ -1,24 +1,13 @@
-// var fs = null;
-// var FOLDERNAME = 'testchromeapp';
-// &uid ==> user id
-
-/* Analytics library in bower was manually updated to 1.5.2 since bower couldnt find it */
-// var service = analytics.getService('asana-chrome-app');
-// window.tracker = service.getTracker('UA-18735851-11');
-// var resolutionLabel = window.innerWidth + ' x ' + window.innerHeight;
-// var trackResolution = analytics.EventBuilder.builder()
-// .category('app')
-// .action('resolution')
-// .dimension(1, resolutionLabel);
-// tracker.send(trackResolution.label(resolutionLabel));
-
 window.tracker = {};
-window.tracker.sendEvent = function() {
-  console.log('TBI');
+window.tracker.sendEvent = function(category, action, label) {
+  if(!ga) return;
+  //ga('send', 'event', [eventCategory], [eventAction], [eventLabel], [eventValue], [fieldsObject]);
+  ga('send', 'event', category, action, label);
 };
 
-window.tracker.sendAppView = function() {
-  console.log('TBI');
+window.tracker.sendAppView = function(view) {
+  if(!ga) return;
+  ga('send', 'pageview', view);
 };
 
 function storeValue(key, value, callback) {

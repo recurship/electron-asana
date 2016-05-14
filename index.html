@@ -21,11 +21,31 @@
 
         <div ng-view></div>
         <script>
-          require('electron-connect').client.create();
           module.paths.push(__dirname + '/node_modules/');
+          require('electron-connect').client.create();
           window.$ = window.jQuery = require('jquery/dist/jquery.js');
           window.electronOpenLinkInBrowser = require('electron-open-link-in-browser');
+
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src='https://www.google-analytics.com/analytics.js';m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+          var GA_LOCAL_STORAGE_KEY = 'ga:clientId';
+
+          ga('create', 'UA-18735851-17', 'auto', {
+             'storage': 'none',
+             'clientId': localStorage.getItem(GA_LOCAL_STORAGE_KEY)
+          });
+
+          ga(function(tracker) {
+             localStorage.setItem(GA_LOCAL_STORAGE_KEY, tracker.get('clientId'));
+          });
+
+          ga('set', 'checkProtocolTask', null);
+          ga('set', 'location', 'http://recurship.com');
         </script>
+
         <!-- incase of weird js errors replace lodash.compact with loadash.min -->
         <!-- build:js scripts/vendor.js -->
         <!-- bower:js -->
