@@ -6,9 +6,19 @@ Very much like the original project this is not meant to be a replacement for As
 
 ### Technologies used
 
-- Angular 1
+- Angular 1.3
 - Bootstrap with Paper theme (from Bootswatch)
 - Restangular library for communicating with Asana api
 - ElectronJS pre-built
 - Electron Connect for livereload
 - Electron Menubar to generate the Menubar functionality
+- Electron open-link-in-browser
+- Modified Google Analytics script for Electron
+
+### Getting started
+
+`
+npm install -g electron-prebuilt
+npm install
+gulp serve
+`
