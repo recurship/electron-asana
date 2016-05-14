@@ -229,7 +229,7 @@ angular.module('asanaChromeApp').controller('MainController', ['$scope','AsanaSe
 					task.showDetails = true;
 					setTimeout(function() {
 						var offset = $('#item' + taskId).offset();
-						offset.top -= 60;
+						offset.top -= 100;
 						$('html, body').animate({
 						    scrollTop: offset.top
 						});
@@ -277,6 +277,5 @@ angular.module('asanaChromeApp').controller('MainController', ['$scope','AsanaSe
 		savePrefs();
 	};
 
-	//$('#version').html('X');
 	tracker.sendAppView('MainView');
 }]);
